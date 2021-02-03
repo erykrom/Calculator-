@@ -6,14 +6,24 @@ public class CalculatorTest {
 
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
-        Calculator calc = new Calculator();
-
         do {
-            System.out.println("Wybierz dane wejściowe:\n 1 - Dwie liczby rzeczywiste \n 2 - Liczba razy Wektor \n 3 - Dwa wektory \n 4 - Dwie macierze" +
-                    " \n 5 - Macierz razy Wektor");
+            System.out.println("Wybierz dane wejściowe:\n 1 - Dwie liczby rzeczywiste \n 2 - Liczba razy Wektor/Macierz \n 3 - Dwa wektory \n 4 - Dwie macierze" +
+                    " \n 5 - Macierz i Wektor");
 
             int mainOption = input.nextInt();
             input.nextLine();
+
+            if(mainOption == 3){
+                System.out.println("Dostępne działania:\n 1 - Dodawanie \n 2 - Odejmowanie");
+
+                int vectorsOption = input.nextInt();
+                input.nextLine();
+
+                if(vectorsOption == 1)
+                    Add_Vectors.addVectorsMethod();
+                if(vectorsOption == 2)
+                    Sub_Vectors.subVectorsMethod();
+            }
 
             if (mainOption == 4) {
                 System.out.println("Dostępne działania:\n 1 - Dodawanie\n 2 - Odejmowanie \n 3 - Mnożenie");
@@ -27,40 +37,28 @@ public class CalculatorTest {
                     Subtract_Matrix.subtractMatrixMethod();
                 if (matrixOption == 3)
                     Multiply_Matrix.multiplyMatrixMethod();
-
-             } else
-
-                if (mainOption == 1) {
+            }
+                    if (mainOption == 1) {
                     System.out.println(" Wybierz operatory: \n 1 - (+), (-), (*), (/) \n 2 - Pierwiastkowanie stopnia 2, \n 3 - Potęgowanie");
-                }
 
-                int secondOption = input.nextInt();
-                input.nextLine();
+                    int secondOption = input.nextInt();
+                    input.nextLine();
 
-                if (secondOption == 1) {
+                if (secondOption == 1)
                     RNumbersCalc.simpleCalcMethod();
-                }
 
-                if (secondOption == 2) {
-                    System.out.println("Podaj liczbę:");
-                    double a = input.nextInt();
-                    double result = calc.calculate(a, 2, "**");
-                    System.out.println(result);
-                }
+                if (secondOption == 2)
+                   SqrtRNumbers.sqrtRNumbersMethod();
 
-                if (secondOption == 3) {
-                    System.out.println("Podaj liczbę");
-                    double a = input.nextInt();
-                    System.out.println("Podaj stopień potęgi");
-                    double b = input.nextInt();
-                    double result = calc.calculate(a, b, "P");
-                    System.out.println(result);
+                if (secondOption == 3)
+                    ExpRNumbers.expRNumbersMethod();
                 }
 
                 System.out.println("Koniec programu, wprowadź " + EXIT);
                 System.out.println("Kontynuuj, wprowadź wartość inną od " + EXIT);
             }
             while (input.nextInt() != EXIT) ;
+            input.close();
         }
     }
 
