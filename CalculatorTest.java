@@ -13,6 +13,20 @@ public class CalculatorTest {
             int mainOption = input.nextInt();
             input.nextLine();
 
+            if(mainOption == 2){
+                System.out.println("1 - Liczba razy Wektor\n 2 - Liczba razy Macierz");
+
+                int scalarOption = input.nextInt();
+                input.nextLine();
+
+                if(scalarOption == 1){
+                    MultiplyScalar_Vector.multiScalarVectorMethod();
+                }
+
+                if(scalarOption == 2)
+                    MultiplyScalar_Matrix.multiScalarMatrixMethod();
+            }
+
             if(mainOption == 3){
                 System.out.println("Dostępne działania:\n 1 - Dodawanie \n 2 - Odejmowanie");
 
